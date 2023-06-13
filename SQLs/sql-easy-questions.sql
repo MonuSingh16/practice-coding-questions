@@ -12,6 +12,8 @@ FROM youtube_reactions
 GROUP BY video_id
 ORDER BY 2 desc;
 
+
+
 /* Q3. What is the average time in days it takes for a user to enroll in prime after creating an account?
 Ignore users who never joined prime. Round to 2 decimal places. */
 
