@@ -29,7 +29,7 @@ Solution
 
 **[Candidate]** Thank you for the clarification. I have another question: what do you mean by a “repeat purchase?” I assume that the AWS sales team provides enterprise solutions. In this case, they most likely care about long-term usages such as annual subscriptions or contracts. Would the repeat purchase be based on if they purchased a product then another one immediately? Or, would it be based on a long-term horizon, meaning that a customer purchased a product this year and again the following year. 
 
-Commentary: Notice that the candidate ensures that he clearly understands the scope of the problem before providing a solution. A business problem in data science is often vague. In data science case rounds, demonstrating to the interviewer how you can translate a vague problem into a concrete objective is vital.
+***Commentary***: Notice that the candidate ensures that he clearly understands the scope of the problem before providing a solution. A business problem in data science is often vague. In data science case rounds, demonstrating to the interviewer how you can translate a vague problem into a concrete objective is vital.
 
 **[Interviewer]** Good question. In this case, a repeat purchase occurs when a customer purchased a product the first year and purchased again the following year. 
 
