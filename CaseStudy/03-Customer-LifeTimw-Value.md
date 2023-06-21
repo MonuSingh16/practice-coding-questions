@@ -57,3 +57,34 @@ I could also apply the same strategy aggregated at the customer x department lev
 
 [Interviewer] ​Great. Now, let’s talk about productionization. How would you deploy your model?
 [Candidate] ​If the offline model performance is decent (let’s say that MAPE is <10%), then I can deploy a model that predicts real-time. Meaning for every customer that has just completed the 1 month as a customer customer, predict their CLV for the next 12 months. I would deploy monitoring such as data validations, unit-testing and performance tracking to ensure that the model is performing quite well.
+
+Interviewer Solution
+-------------
+A naive solution would say, “build a regression model that trains on customer behavior data andpredicts customer lifetime value. You can use a model like XGBoost, perform hyper-parametertuning and optimize on mean squared error.”Although the explanation above describes the model, many vital details are neglected. First you need two elements - time horizon and prediction point.
+
+(1)Define Time Horizon - The CLV is the total revenue a business generates from a customer ​over time horizon​.CLV is not always a measure of revenue across a customer’s lifetime, from the momentof sign-up until cancellation. CLV is also measured over a period. For instance, abusiness could be interested in the lifetime value of the first month, six months or 12months from a customer since the sign-up.
+(2)Define Prediction Point - At what point do you predict the lifetime value of a customer? Are you predicting on a new customer? Or, are you predicting on a current customer based on the purchase history?
+
+Depending on your design decisions, the data size, feature availability and algorithm woulddiffer.You could explain the following to interviewer:
+You: “To measure customer lifetime value, I need to define the time horizon and prediction point. For instance, I could predict the total lifetime value of months three through six given acustomer’s purchase history on the first two months. Or, I could predict lifetime value of the first six months since sign-up.
+
+”Interviewer: “Very good. How would you decide?”
+This follow-up question is an opportunity to showcase your business sense. You could explain the following:
+
+You: “In either one of the cases, you could project the average or total revenue earned across customers. The forecasting could be useful for reporting purpose to address questions like, ‘is the business alluring customers that will yield high revenue?
+
+’One additional note about the second approach, prediction at sign-up, is that this model could be useful for A/B testing. Suppose an experimentation is conducted comparing sign-up rates on two variations. One question to address is the revenue earned from each of the two groups.You could wait six months to gather total revenues from the customers or, forecast the expected revenue earned at conversion.”
+
+Interviewer: “Your application on A/B testing certainly makes sense. Now, how would you predict customer lifetime value given that you are predicting at sign-up?
+”You’ve established the prediction point and lifetime value. In addition, you selected and justified an approach. Now, you can discuss modeling part.You: “Given that I do not have user purchase pattern. I could use other data source such as device information, location data, time period, ip address, and cookie history.
+
+”Interviwer: “Can you elaborate?”Prediction without user history is a cold-start problem in machine learning. Many creative approaches are proposed. One approach is to gather as much information about the user’s device through a backend or third-party service that collects the information every time a user enters the site. This is called device intelligence and, oftentimes, companies use this to resolve cold-start problems in recommender system or fraud problems. For instance, device intelligence can collect information on the user’s browser type, operating system, latitude and longitude of location, device type and such. There are start-ups that use this technology to collect hundreds of signals about a new user even before he clicks anything on the site.
+
+You: “I presume you can collect device information from browser type (i.e. Chrome, Safari)device type (i.e. mobile, desktop or tablet), country location (i.e. U.S., Japan) and such.Additionally, I assume you would know the source of how the new customer stumbled upon thepage as in, ‘did the new customer enter the site through search engine like Google or FacebookAds?’ 
+
+Lastly, I would also presume that you would know some information about the user basedon their profile information populated during the sign-up.”
+
+Interviewer: “That is correct. Now, I’d like to see you design the model.
+”Once you laid the grouandwork of the problem and variables, the approach is the problem is straightforward. You cn explain how you would use the raw variable to derive model features through feature engineering and selection. Lastly, you could explain what model you would use.As a starting point, do not be concerned about the sophistication of your algorithm. Interviwers generally do not care whether you would decide to use neural networks or logistic regression.The focus point is on your design. Lastly, you can evaluate your model on regression evaluation metrics like mean squared error, mean absolute error, mean absolute percentage error and such.
+
+In each step explained, expect one or two follow-up questions. As long as you explain andjustify your approach, you will ace this machine learning design interview
